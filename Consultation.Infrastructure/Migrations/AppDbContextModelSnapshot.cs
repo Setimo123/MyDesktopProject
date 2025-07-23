@@ -149,7 +149,7 @@ namespace Consultation.Infrastructure.Migrations
                     b.Property<int>("FacultyID")
                         .HasColumnType("int");
 
-                    b.Property<int>("NotificationNumber")
+                    b.Property<int>("NotificationID")
                         .HasColumnType("int");
 
                     b.Property<TimeOnly>("StartedTime")
@@ -168,8 +168,6 @@ namespace Consultation.Infrastructure.Migrations
                     b.HasKey("ConsultationID");
 
                     b.HasIndex("FacultyID");
-
-                    b.HasIndex("NotificationNumber");
 
                     b.HasIndex("StudentID");
 
@@ -402,23 +400,6 @@ namespace Consultation.Infrastructure.Migrations
                     b.HasIndex("FacultyID");
 
                     b.ToTable("FacultySchedule");
-                });
-
-            modelBuilder.Entity("Consultation.Domain.Notification", b =>
-                {
-                    b.Property<int>("NotificationNumber")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("NotificationNumber"));
-
-                    b.Property<string>("NotificationMessage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("NotificationNumber");
-
-                    b.ToTable("Notification");
                 });
 
             modelBuilder.Entity("Consultation.Domain.Program", b =>
@@ -682,7 +663,7 @@ namespace Consultation.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CEDRICSETIMO.550200@UMINDANAO.EDU.PH",
                             NormalizedUserName = "CEDRIC SETIMO",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJ3GO2CQknC+MtckyROMSweNNjZoYYRXI4llFimjZhEqQo6o3TZNoCAUdxIvTBIBTw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEExy+aYJJEoN6l+8rjKFS0+jmzx5aQwTKiMNRjUDRVzAMadhkJHf5KQoYizHh6i+zQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4",
                             TwoFactorEnabled = false,
@@ -700,7 +681,7 @@ namespace Consultation.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "REYMATEO.550200@UMINDANAO.EDU.PH",
                             NormalizedUserName = "REY MATEO",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGe7FyXpryVbXueGdSuASBvTBL2Bdr16gfkDNiSDhaFslC8sFInvzxZPYcsjxox3/w==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPKsPCny0XO17M0IAyLNWcEjNLu62HFJ/M+Y4wN5suD3sV3Gv90iLkjYyGuQMr71GA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4",
                             TwoFactorEnabled = false,
@@ -718,7 +699,7 @@ namespace Consultation.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "RAINEISID.550200@UMINDANAO.EDU.PH",
                             NormalizedUserName = "RAINE ISID",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMh7t7lXwxLsULK/20Fqe0LcTz0/Ytq6Y8CfO2DKMLW7/o5krsiskw+gr4tzVjEt9A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEE4LIkCf0Vy/khk4Y3ZO/Rq61mwF/VWFmGLfzRXkO2KvC+gzmZs0piT8oN36a0fVIw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4",
                             TwoFactorEnabled = false,
@@ -736,7 +717,7 @@ namespace Consultation.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ELLAINEMUSNI.550200@UMINDANAO.EDU.PH",
                             NormalizedUserName = "ELLAINE MUSNI",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDbV1bXcr++YOnJpqbA8SA1C61ZW2BdRqfoGIc8i5RpJlCPsnPwrjtWcHTvpwN3MLw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENdsAZu9wl78L6IrN+1awkxJjBSuihhVpV9GkrFGVuOfOoRwTTJcWcxq6+mZTt5RTA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4",
                             TwoFactorEnabled = false,
@@ -754,7 +735,7 @@ namespace Consultation.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "REGGIESOYLON.6850@UMINDANAO.EDU.PH",
                             NormalizedUserName = "REGGIE SOYLON",
-                            PasswordHash = "AQAAAAIAAYagAAAAEL8cDGQ3B8o7oBYa9qZD2Fbt1Lt5m8tj/OBMQ3glWsf5pgHI/3NmILsYrEkvzbT8yQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELduZPduHKH6/3OLiOqSkVXe7LVO2e3CGoaPi2ZLERYvJ5dvw1Gwaeb9GullRCKtdg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4",
                             TwoFactorEnabled = false,
@@ -772,7 +753,7 @@ namespace Consultation.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CHELEYBALSOMO.8998@UMINDANAO.EDU.PH",
                             NormalizedUserName = "CHELEY BALSOMO",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIQ5f3AAQ22yY1PPc4cqSEO7jtgquyo4XvBSuyz+XywbUs8iVDghfS7J94axAz7y1Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOi5g6WFYxJauzh9vLiJ89G1CQy5p/NOaEkr5JHsErW4WwCn5lbkU5urjQj0TTvuFg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4",
                             TwoFactorEnabled = false,
@@ -790,7 +771,7 @@ namespace Consultation.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "JEANELLELABSAN.7971@UMINDANAO.EDU.PH",
                             NormalizedUserName = "JEANELLE LABSAN",
-                            PasswordHash = "AQAAAAIAAYagAAAAED4WJyweJ6YXtPZ8GLeYoeYp/abIbDdxxz1SHeX4VToPLmDsI6iCTT+Q51waeiEJ9Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFBPRyi+edfqXD6VXyRQ+SwL1PPHNxikc2r35j8KO5VtSEurg2/d3NerY/AO7mJ7dg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4",
                             TwoFactorEnabled = false,
@@ -808,7 +789,7 @@ namespace Consultation.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CHRISTOPHERDESTAJO.9241@UMINDANAO.EDU.PH",
                             NormalizedUserName = "CHRISTOPHER DESTAJO",
-                            PasswordHash = "AQAAAAIAAYagAAAAELKYPLnvoOHYbJK8gKvPDfzgn+xEldFrRCNkdOMwwmCmhq5L/qCXUHIOK37JSp8gig==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKNLQCVJsHoyPMZ+vzNCvaFXn1SduAzBgf/Fpd9/uaFn+TsYcY1DAFh1ixUau7LHpQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4",
                             TwoFactorEnabled = false,
@@ -826,7 +807,7 @@ namespace Consultation.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "JIVERDEJIGA.3210@UMINDANAO.EDU.PH",
                             NormalizedUserName = "JIVER DEJIGA",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDvOh4qZLToiypQcX/bCi/IVmUAb0rBA7CrkNhTMgGxp0N3S6MxPlLXrp+3PFtAeSA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEK2HSB42jrAEJPda0A8dTILCNCpnJKlOY2JKqvK96+69YXS7uKtAbQ+ukMRij1cFrQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4",
                             TwoFactorEnabled = false,
@@ -997,12 +978,6 @@ namespace Consultation.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Consultation.Domain.Notification", "Notification")
-                        .WithMany()
-                        .HasForeignKey("NotificationNumber")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Consultation.Domain.Student", "Student")
                         .WithMany("ConsultationRequests")
                         .HasForeignKey("StudentID")
@@ -1010,8 +985,6 @@ namespace Consultation.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Faculty");
-
-                    b.Navigation("Notification");
 
                     b.Navigation("Student");
                 });

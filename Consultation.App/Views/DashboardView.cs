@@ -52,7 +52,6 @@ namespace Consultation.App.Dashboard
 
         public string AdminName
         {
-            //set => lbl_UserName.Text = value;
             set
             {
                 lbl_UserName.Text = value;

@@ -9,7 +9,7 @@ namespace Consultation.App.Service.IService
 {
     public interface IAdminAccountServices
     {
-        Task<Admin?> AdminAccount();
-        string UserID { set; get; }
+        Task<Admin?> AdminAccount(string userId);
+        
     }
 }

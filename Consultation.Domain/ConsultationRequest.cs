@@ -30,7 +30,7 @@ namespace Consultation.Domain
 
         public Status Status { get; set; }
 
-        public Notification Notification { get; set; }   
+        public int NotificationID { get; set; }
 
         public virtual Student Student { get; set; }
 

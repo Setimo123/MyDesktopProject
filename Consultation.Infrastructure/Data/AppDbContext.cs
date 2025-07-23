@@ -1,4 +1,5 @@
 ﻿using Consultation.Domain;
+using Consultation.Domain.Enum;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -124,8 +125,51 @@ namespace Consultation.Infrastructure.Data
                 DatabaseSeeder.AdminSeeder(1, "Raine Isid", "6B187E9D-FD71-4F1D-AFDF-EA1D91E818EF"),
                 DatabaseSeeder.AdminSeeder(2, "Jiver Dejiga", "D81B4D15-B3CD-47D5-96B0-44EF8E39E538"),
             };
+            var consultationRequest = new List<ConsultationRequest>()
+            {
+                        DatabaseSeeder.ConsultationRequestSeeder(
+                    1,
+                    new DateTime(2025, 07, 20),  // DateRequested
+                    new DateTime(2025, 07, 25),  // DateSchedule
+                    new TimeOnly(9, 0),          // StartedTime
+                    new TimeOnly(10, 0),         // EndedTime
+                    "Need help with calculus problems", // Concern
+                    null,                        // DisapprovedReason
+                    "MATH101",                   // SubjectCode
+                    Status.Pending,              // Status
+                    1,                           // StudentID
+                    101                          // FacultyID
+                ),
 
+                DatabaseSeeder.ConsultationRequestSeeder(
+                    2,
+                    new DateTime(2025, 07, 21),  // DateRequested
+                    new DateTime(2025, 07, 26),  // DateSchedule
+                    new TimeOnly(13, 30),        // StartedTime
+                    new TimeOnly(14, 30),        // EndedTime
+                    "Need help with data structures", // Concern
+                    null,                        // DisapprovedReason
+                    "CS202",                     // SubjectCode
+                    Status.Pending,              // Status
+                    2,                           // StudentID
+                    102                          // FacultyID
+                ),
 
+                DatabaseSeeder.ConsultationRequestSeeder(
+                    3,
+                    new DateTime(2025, 07, 19),  // DateRequested
+                    new DateTime(2025, 07, 28),  // DateSchedule
+                    new TimeOnly(15, 0),         // StartedTime
+                    new TimeOnly(16, 0),         // EndedTime
+                    "Follow-up on previous consultation", // Concern
+                    "Faculty unavailable",       // DisapprovedReason
+                    "PHY303",                    // SubjectCode
+                    Status.Disapproved,          // Status
+                    3,                           // StudentID
+                    103                          // FacultyID
+                ),
+            };
+    
 
             builder.Entity<Users>().HasData(users);
             builder.Entity<Department>().HasData(departments);
@@ -135,6 +179,7 @@ namespace Consultation.Infrastructure.Data
             builder.Entity<Student>().HasData(students);
             builder.Entity<Faculty>().HasData(faculty);
             builder.Entity<Admin>().HasData(admin);
+            builder.Entity<ConsultationRequest>().HasData(consultationRequest);
             base.OnModelCreating(builder);
         }
 

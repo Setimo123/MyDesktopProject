@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Consultation.Domain.Enum;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Consultation.Infrastructure.Data
 {
@@ -112,8 +114,6 @@ namespace Consultation.Infrastructure.Data
                 FacultyUMID = facultyUMID,
                 FacultyName = facultyName,   
                 SchoolYearID = schoolYearID,
-                //FacultySchedules = facultySchedules, Parameter = List<FacultySchedule> facultySchedules
-                //ConsultationRequests = consultationRequests ,  Parameter = List<ConsultationRequest> consultationRequests,
 
             };
             return faculty;
@@ -133,8 +133,26 @@ namespace Consultation.Infrastructure.Data
 
 
 
-
-
+        public static ConsultationRequest ConsultationRequestSeeder(int ConsultationID,DateTime DateRequested,DateTime DateSchedule, TimeOnly StartedTime,
+            TimeOnly EndedTime, string Concern, string? DisapprovedReason, string SubjectCode, Status Status, 
+            int StudentID, int FacultyID)
+        {
+            var ConsultationRequest = new ConsultationRequest
+            {
+                ConsultationID = ConsultationID,
+                DateRequested = DateRequested,
+                DateSchedule = DateSchedule,
+                StartedTime = StartedTime,
+                EndedTime = EndedTime,
+                Concern = Concern,
+                DisapprovedReason = DisapprovedReason,
+                SubjectCode = SubjectCode,
+                Status = Status,
+                StudentID = StudentID,
+                FacultyID = FacultyID
+            };          
+        return ConsultationRequest;
+        }
     }
 }
 

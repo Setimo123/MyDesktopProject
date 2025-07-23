@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Consultation.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateTableWithSeeder : Migration
+    public partial class CreateTableDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -84,19 +84,6 @@ namespace Consultation.Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Department", x => x.DepartmentID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Notification",
-                columns: table => new
-                {
-                    NotificationNumber = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    NotificationMessage = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Notification", x => x.NotificationNumber);
                 });
 
             migrationBuilder.CreateTable(
@@ -383,7 +370,7 @@ namespace Consultation.Infrastructure.Migrations
                     DisapprovedReason = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SubjectCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),
-                    NotificationNumber = table.Column<int>(type: "int", nullable: false),
+                    NotificationID = table.Column<int>(type: "int", nullable: false),
                     StudentID = table.Column<int>(type: "int", nullable: false),
                     FacultyID = table.Column<int>(type: "int", nullable: false)
                 },
@@ -395,12 +382,6 @@ namespace Consultation.Infrastructure.Migrations
                         column: x => x.FacultyID,
                         principalTable: "Faculty",
                         principalColumn: "FacultyID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ConsultationRequest_Notification_NotificationNumber",
-                        column: x => x.NotificationNumber,
-                        principalTable: "Notification",
-                        principalColumn: "NotificationNumber",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ConsultationRequest_Students_StudentID",
@@ -450,14 +431,15 @@ namespace Consultation.Infrastructure.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UMID", "UserName", "UserType" },
                 values: new object[,]
                 {
-                    { "0A52E15B-95E6-40FE-9110-9A44817BFF39", 0, "8d3ef0d9-b045-4b8f-a18f-15f2cbfa219b", "CheleyBalsomo.8998@umindanao.edu.ph", true, false, null, "CHELEYBALSOMO.8998@UMINDANAO.EDU.PH", "CHELEY BALSOMO", "AQAAAAIAAYagAAAAENhOziLJgeq9CatDfgL1qoocfnbCa1YZc0JesLGjI5VSbk1bfnQJywwUcYNQosQdhQ==", null, false, "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4", false, "899812", "Cheley Balsomo", 1 },
-                    { "1226920F-9508-44B3-845A-ABABBBCBCF5D", 0, "8d3ef0d9-b045-4b8f-a18f-15f2cbfa219b", "ReggieSoylon.6850@umindanao.edu.ph", true, false, null, "REGGIESOYLON.6850@UMINDANAO.EDU.PH", "REGGIE SOYLON", "AQAAAAIAAYagAAAAEPmRNerKzv7/4Hyqcez0BtVfYCiDHEmFdfNg1RIj/rKilp7FNNU0tLz5dz0RkAa1Fg==", null, false, "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4", false, "685043", "Reggie Soylon", 1 },
-                    { "273F528F-5330-411F-9C6B-01543D6249C3", 0, "8d3ef0d9-b045-4b8f-a18f-15f2cbfa219b", "CedricSetimo.550200@umindanao.edu.ph", true, false, null, "CEDRICSETIMO.550200@UMINDANAO.EDU.PH", "CEDRIC SETIMO", "AQAAAAIAAYagAAAAELbKsQKa34fI17GQ/jJSlxKsnWaOTsfxI1L3FjJmbeAYyhkNIcaSTW0vSELQuxKayw==", null, false, "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4", false, "550200", "Cedric Setimo", 1 },
-                    { "53D8F920-EBEC-4DF3-8C53-21F6D123F0D9", 0, "8d3ef0d9-b045-4b8f-a18f-15f2cbfa219b", "ReyMateo.550200@umindanao.edu.ph", true, false, null, "REYMATEO.550200@UMINDANAO.EDU.PH", "REY MATEO", "AQAAAAIAAYagAAAAEMco9RI7YneDKQgKXqyAAs1YwQAWlSqbbzmAjjeytt/lhwpxzkPYTKZA/MwUsukURA==", null, false, "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4", false, "321033", "Rey Mateo", 2 },
-                    { "59CF8531-68E4-466B-BAEC-45305FE16A14", 0, "8d3ef0d9-b045-4b8f-a18f-15f2cbfa219b", "ChristopherDestajo.9241@umindanao.edu.ph", true, false, null, "CHRISTOPHERDESTAJO.9241@UMINDANAO.EDU.PH", "CHRISTOPHER DESTAJO", "AQAAAAIAAYagAAAAEIM4Cf2wY7mLd5Gmtk8L7hKRAH3PUPY5iRW9kWGVGOEvT19EuJZA14cgRVh94CY1HQ==", null, false, "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4", false, "924132", "Christopher Destajo", 1 },
-                    { "6B187E9D-FD71-4F1D-AFDF-EA1D91E818EF", 0, "8d3ef0d9-b045-4b8f-a18f-15f2cbfa219b", "RaineIsid.550200@umindanao.edu.ph", true, false, null, "RAINEISID.550200@UMINDANAO.EDU.PH", "RAINE ISID", "AQAAAAIAAYagAAAAEAoez450Xh/EVhdpQASC9VyC347ESWzcZoZtddx9gQ2+5AFwR3E9FpjhU+PZIMwEfA==", null, false, "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4", false, "444533", "Raine Isid", 3 },
-                    { "78B4AF2A-672F-43C5-B819-5F0B407B7187", 0, "8d3ef0d9-b045-4b8f-a18f-15f2cbfa219b", "JeanelleLabsan.7971@umindanao.edu.ph", true, false, null, "JEANELLELABSAN.7971@UMINDANAO.EDU.PH", "JEANELLE LABSAN", "AQAAAAIAAYagAAAAEGtTUIDHRvyM65WP9RtBFMQT8WqFwUTyd6SSxKqIFTrkGcv6aVUgTLrs6IZt32ghjA==", null, false, "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4", false, "797132", "Jeanelle Labsan", 2 },
-                    { "D0B26692-E380-4374-985F-239B56D06C20", 0, "8d3ef0d9-b045-4b8f-a18f-15f2cbfa219b", "EllaineMusni.550200@umindanao.edu.ph", true, false, null, "ELLAINEMUSNI.550200@UMINDANAO.EDU.PH", "ELLAINE MUSNI", "AQAAAAIAAYagAAAAEBLnDh2Jcs+tEmJmQUDV3QxMQW58smNxPn/W9x8yNjb0kujB7vU12310qvaK3hYmdA==", null, false, "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4", false, "547343", "Ellaine Musni", 1 }
+                    { "0A52E15B-95E6-40FE-9110-9A44817BFF39", 0, "8d3ef0d9-b045-4b8f-a18f-15f2cbfa219b", "CheleyBalsomo.8998@umindanao.edu.ph", true, false, null, "CHELEYBALSOMO.8998@UMINDANAO.EDU.PH", "CHELEY BALSOMO", "AQAAAAIAAYagAAAAEOi5g6WFYxJauzh9vLiJ89G1CQy5p/NOaEkr5JHsErW4WwCn5lbkU5urjQj0TTvuFg==", null, false, "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4", false, "899812", "Cheley Balsomo", 1 },
+                    { "1226920F-9508-44B3-845A-ABABBBCBCF5D", 0, "8d3ef0d9-b045-4b8f-a18f-15f2cbfa219b", "ReggieSoylon.6850@umindanao.edu.ph", true, false, null, "REGGIESOYLON.6850@UMINDANAO.EDU.PH", "REGGIE SOYLON", "AQAAAAIAAYagAAAAELduZPduHKH6/3OLiOqSkVXe7LVO2e3CGoaPi2ZLERYvJ5dvw1Gwaeb9GullRCKtdg==", null, false, "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4", false, "685043", "Reggie Soylon", 1 },
+                    { "273F528F-5330-411F-9C6B-01543D6249C3", 0, "8d3ef0d9-b045-4b8f-a18f-15f2cbfa219b", "CedricSetimo.550200@umindanao.edu.ph", true, false, null, "CEDRICSETIMO.550200@UMINDANAO.EDU.PH", "CEDRIC SETIMO", "AQAAAAIAAYagAAAAEExy+aYJJEoN6l+8rjKFS0+jmzx5aQwTKiMNRjUDRVzAMadhkJHf5KQoYizHh6i+zQ==", null, false, "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4", false, "550200", "Cedric Setimo", 1 },
+                    { "53D8F920-EBEC-4DF3-8C53-21F6D123F0D9", 0, "8d3ef0d9-b045-4b8f-a18f-15f2cbfa219b", "ReyMateo.550200@umindanao.edu.ph", true, false, null, "REYMATEO.550200@UMINDANAO.EDU.PH", "REY MATEO", "AQAAAAIAAYagAAAAEPKsPCny0XO17M0IAyLNWcEjNLu62HFJ/M+Y4wN5suD3sV3Gv90iLkjYyGuQMr71GA==", null, false, "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4", false, "321033", "Rey Mateo", 2 },
+                    { "59CF8531-68E4-466B-BAEC-45305FE16A14", 0, "8d3ef0d9-b045-4b8f-a18f-15f2cbfa219b", "ChristopherDestajo.9241@umindanao.edu.ph", true, false, null, "CHRISTOPHERDESTAJO.9241@UMINDANAO.EDU.PH", "CHRISTOPHER DESTAJO", "AQAAAAIAAYagAAAAEKNLQCVJsHoyPMZ+vzNCvaFXn1SduAzBgf/Fpd9/uaFn+TsYcY1DAFh1ixUau7LHpQ==", null, false, "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4", false, "924132", "Christopher Destajo", 1 },
+                    { "6B187E9D-FD71-4F1D-AFDF-EA1D91E818EF", 0, "8d3ef0d9-b045-4b8f-a18f-15f2cbfa219b", "RaineIsid.550200@umindanao.edu.ph", true, false, null, "RAINEISID.550200@UMINDANAO.EDU.PH", "RAINE ISID", "AQAAAAIAAYagAAAAEE4LIkCf0Vy/khk4Y3ZO/Rq61mwF/VWFmGLfzRXkO2KvC+gzmZs0piT8oN36a0fVIw==", null, false, "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4", false, "444533", "Raine Isid", 3 },
+                    { "78B4AF2A-672F-43C5-B819-5F0B407B7187", 0, "8d3ef0d9-b045-4b8f-a18f-15f2cbfa219b", "JeanelleLabsan.7971@umindanao.edu.ph", true, false, null, "JEANELLELABSAN.7971@UMINDANAO.EDU.PH", "JEANELLE LABSAN", "AQAAAAIAAYagAAAAEFBPRyi+edfqXD6VXyRQ+SwL1PPHNxikc2r35j8KO5VtSEurg2/d3NerY/AO7mJ7dg==", null, false, "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4", false, "797132", "Jeanelle Labsan", 2 },
+                    { "D0B26692-E380-4374-985F-239B56D06C20", 0, "8d3ef0d9-b045-4b8f-a18f-15f2cbfa219b", "EllaineMusni.550200@umindanao.edu.ph", true, false, null, "ELLAINEMUSNI.550200@UMINDANAO.EDU.PH", "ELLAINE MUSNI", "AQAAAAIAAYagAAAAENdsAZu9wl78L6IrN+1awkxJjBSuihhVpV9GkrFGVuOfOoRwTTJcWcxq6+mZTt5RTA==", null, false, "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4", false, "547343", "Ellaine Musni", 1 },
+                    { "D81B4D15-B3CD-47D5-96B0-44EF8E39E538", 0, "8d3ef0d9-b045-4b8f-a18f-15f2cbfa219b", "JiverDejiga.3210@umindanao.edu.ph", true, false, null, "JIVERDEJIGA.3210@UMINDANAO.EDU.PH", "JIVER DEJIGA", "AQAAAAIAAYagAAAAEK2HSB42jrAEJPda0A8dTILCNCpnJKlOY2JKqvK96+69YXS7uKtAbQ+ukMRij1cFrQ==", null, false, "5a54c967-0b1f-4c38-bda7-5f94e4c1a3f4", false, "54321", "Jiver Dejiga", 3 }
                 });
 
             migrationBuilder.InsertData(
@@ -478,6 +460,15 @@ namespace Consultation.Infrastructure.Migrations
                     { 1, 1, 1, "2024", "2025" },
                     { 2, 1, 2, "2024", "2025" },
                     { 3, 1, 3, "2024", "2025" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Admin",
+                columns: new[] { "AdminID", "AdminName", "UsersID" },
+                values: new object[,]
+                {
+                    { 1, "Raine Isid", "6B187E9D-FD71-4F1D-AFDF-EA1D91E818EF" },
+                    { 2, "Jiver Dejiga", "D81B4D15-B3CD-47D5-96B0-44EF8E39E538" }
                 });
 
             migrationBuilder.InsertData(
@@ -580,11 +571,6 @@ namespace Consultation.Infrastructure.Migrations
                 column: "FacultyID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ConsultationRequest_NotificationNumber",
-                table: "ConsultationRequest",
-                column: "NotificationNumber");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_ConsultationRequest_StudentID",
                 table: "ConsultationRequest",
                 column: "StudentID");
@@ -678,9 +664,6 @@ namespace Consultation.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
-
-            migrationBuilder.DropTable(
-                name: "Notification");
 
             migrationBuilder.DropTable(
                 name: "Students");
