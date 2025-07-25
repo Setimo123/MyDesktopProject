@@ -12,10 +12,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Consultation.App.Service;
 
 namespace Consultation.App.Dashboard
 {
-    public partial class DashboardView : UserControl,IDashboardView
+    public partial class DashboardView : UserControl, IDashboardView
     {
         public event EventHandler ButtonClick;
 
@@ -23,13 +24,17 @@ namespace Consultation.App.Dashboard
         private Color consultationDefaultColor;
         private Color hoverColor = Color.LightBlue;
 
+
         private DashboardPresenter _presenter;
 
         public UserControl AsUserControl => this;
 
+
+
         public DashboardView()
         {
             InitializeComponent();
+            //this.Load += MainDashboardUserControl_Load;
 
             createNewBulletin1.Cursor = Cursors.Hand;
             manageConsultation1.Cursor = Cursors.Hand;
@@ -41,33 +46,38 @@ namespace Consultation.App.Dashboard
             bulletinDefaultColor = createNewBulletin1.BackColor;
             consultationDefaultColor = manageConsultation1.BackColor;
 
+
+            MakePanelClickable(materialCardCPE, (s, e) => ShowCPEConsultationData?.Invoke(s, e));
+
+
             //hover events for buttons
             AttachHoverEvents(createNewBulletin1, createNewBulletin1_MouseEnter, createNewBulletin1_MouseLeave);
+            AttachHoverEvents(materialCardCPE, MaterialCPE_MouseEnter, MaterialCPE_MouseLeave);
             AttachHoverEvents(manageConsultation1, manageConsultation1_MouseEnter, manageConsultation1_MouseLeave);
             AttachHoverEvents(addUser1, addUser1_MouseEnter, addUser1_MouseLeave);
             AttachHoverEvents(systemSettings1, systemSettings1_MouseEnter, systemSettings1_MouseLeave);
 
-            this.Load += MainDashboardUserControl_Load;
+
         }
 
-        public string AdminName
+        private void MakePanelClickable(Panel panel, EventHandler handler)
         {
-            set
+            panel.Click += handler;
+
+            foreach (Control ctrl in panel.Controls)
             {
-                lbl_UserName.Text = value;
-                MessageBox.Show("Property hit! value=" + value);
+                ctrl.Click += handler;
             }
-            
         }
 
-        private void MainDashboardUserControl_Load(object sender, EventArgs e)
-        {
-            ActivityFeedPanel.Controls.Add(new Bulletin());
-            BulletinButton.CustomBorderThickness = new Padding(0, 0, 0, 3);
 
-            //_presenter = new DashboardPresenter(this);
-            //_presenter.LoadDashboardData();
-        }
+        //private async void MainDashboardUserControl_Load(object sender, EventArgs e)
+        //{
+        //    ActivityFeedPanel.Controls.Add(new Bulletin());
+        //    BulletinButton.CustomBorderThickness = new Padding(0, 0, 0, 3);
+
+        //    _presenter = new DashboardPresenter(this, new ConsultationRequestServices());
+        //}
 
         public void LoadRecentBulletins(List<BulletinModel> bulletins)
         {
@@ -160,9 +170,17 @@ namespace Consultation.App.Dashboard
             createNewBulletin1.BackColor = hoverColor;
         }
 
+        private void MaterialCPE_MouseEnter(object sender, EventArgs e)
+        {
+            materialCardCPE.BackColor = hoverColor;
+        }
         private void createNewBulletin1_MouseLeave(object sender, EventArgs e)
         {
             createNewBulletin1.BackColor = bulletinDefaultColor;
+        }
+        private void MaterialCPE_MouseLeave(object sender, EventArgs e)
+        {
+            materialCardCPE.BackColor = bulletinDefaultColor;
         }
 
         private void manageConsultation1_MouseEnter(object sender, EventArgs e)
@@ -198,5 +216,21 @@ namespace Consultation.App.Dashboard
         private void createNewBulletin1_Click(object sender, EventArgs e)
         {
         }
+
+        private void DashboardView_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        //All events in the DashBoard
+        public event EventHandler ShowCPEConsultationData;
+
+        //All Properties
+        public string AdminName { set => lbl_UserName.Text = value; }
+        public int TotalPendingConsultation { set => PendingApprovalsCount.Text = value.ToString(); }
+        public int TotalCompletConsultation { set => ConsultationsCompletedCount.Text = value.ToString(); }
+        public int TotalUpcomingConsultation { set => UpcomingSessionsCount.Text = value.ToString(); }
+
+
     }
 }

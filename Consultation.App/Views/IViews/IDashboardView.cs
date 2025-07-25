@@ -7,6 +7,11 @@ namespace Consultation.App.Views.IViews
     {
 
         string AdminName { set; }
+        int TotalPendingConsultation { set; }
+        int TotalCompletConsultation { set; }
+        int TotalUpcomingConsultation { set; }
+
+        event EventHandler ShowCPEConsultationData;
         //void LoadRecentBulletins(List<BulletinModel> bulletins);
         //void LoadRecentConsultations(List<ConsultationModel> consultations);
 
@@ -14,6 +19,6 @@ namespace Consultation.App.Views.IViews
 
         //void UpdateConsultationStats(int CPE, int EE, int ECE, int CE, int ME, int CHE);
 
-        
+
     }
 }

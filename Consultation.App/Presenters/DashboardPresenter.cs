@@ -1,9 +1,11 @@
 ﻿using Consultation.App.Dashboard;
+using Consultation.App.Repository;
 using Consultation.App.Service;
 using Consultation.App.Service.IService;
 using Consultation.App.ViewModels.DashboardModels;
 using Consultation.App.Views;
 using Consultation.App.Views.IViews;
+using Consultation.Domain.Enum;
 using Consultation.Service.IService;
 using Microsoft.VisualBasic.Logging;
 using System;
@@ -16,80 +18,24 @@ namespace Consultation.App.Presenters
 {
     public class DashboardPresenter
     {
-        private readonly IDashboardView _view;
-        private IAuthService _authservice;
-        private DashboardView view;
-        private readonly ILoginView _loginView;
-        private readonly IAdminAccountServices _adminaccountservices;
+        private readonly IDashboardView _dashboardview;
+        private readonly IConsultationRequestServices _consultationrequestservices;
+        private readonly IMainView _mainview;
 
-        public DashboardPresenter(IDashboardView view, IAdminAccountServices adminaccountservices)
+        public DashboardPresenter(IDashboardView dashboardview, IConsultationRequestServices consultationrequestservices,
+            IMainView mainview)
         {
-              _view = view;
-            _adminaccountservices = adminaccountservices;
+            _mainview = mainview;
+            _dashboardview = dashboardview;
+            _consultationrequestservices = consultationrequestservices;
+            _dashboardview.ShowCPEConsultationData += ShowCPEConsultationData;
         }
 
-        public DashboardPresenter(DashboardView view)
+        public void ShowCPEConsultationData(object? sender, EventArgs e)
         {
-            this.view = view;
+            var consultationRequest = _consultationrequestservices.TotalPendingConsultation("CPE", Status.Pending);
+            _dashboardview.TotalPendingConsultation = 5;
         }
 
-        /*
-          public void LoadDashboardData()
-          {
-              var user = _dbContext.Users.FirstOrDefault(u => u.Username == _view.LoggedInUsername);
-      _view.DisplayUserName(user?.FirstName ?? "User");
-
-      var bulletins = _dbContext.Bulletins
-          .OrderByDescending(b => b.DatePosted)
-          .Take(10)
-          .Select(b => new BulletinModel
-          {
-              Title = b.Title,
-              Status = b.Status,
-              Body = b.Body,
-              DatePosted = b.DatePosted
-          })
-          .ToList();
-
-      _view.LoadRecentBulletins(bulletins);
-
-      var consultations = _dbContext.Consultations
-          .OrderByDescending(c => c.DateScheduled)
-          .Take(10)
-          .Select(c => new ConsultationModel
-          {
-              Title = c.Title,
-              Status = c.Status,
-              Body = c.Body,
-              DateScheduled = c.DateScheduled,
-              Course = c.Course
-          })
-          .ToList();
-
-      _view.LoadRecentConsultations(consultations);
-
-      // Count statistics
-
-      int publishedCount = _dbContext.Bulletins.Count(b => b.Status == "Approved");
-      int pendingCount = _dbContext.Bulletins.Count(b => b.Status == "Pending");
-      int completedConsultations = _dbContext.Consultations.Count(c => c.Status == "Completed");
-      int upcomingSessions = _dbContext.Consultations.Count(c => c.DateScheduled > DateTime.Now);
-
-      _view.UpdateDashboardStats(publishedCount, pendingCount, completedConsultations, upcomingSessions);
-
-
-      // ConsultationByDepartmentStats
-
-      // Count consultations per department
-      int countCPE = _dbContext.Consultations.Count(c => c.Course == "CPE");
-      int countEE = _dbContext.Consultations.Count(c => c.Course == "EE");
-      int countECE = _dbContext.Consultations.Count(c => c.Course == "ECE");
-      int countCE = _dbContext.Consultations.Count(c => c.Course == "CE");
-      int countME = _dbContext.Consultations.Count(c => c.Course == "ME");
-      int countCHE = _dbContext.Consultations.Count(c => c.Course == "CHE");
-
-      _view.UpdateConsultationStats(countCPE, countEE, countECE, countCE, countME, countCHE);
-    }
-    */
     }
 }

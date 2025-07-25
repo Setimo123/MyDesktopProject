@@ -58,6 +58,22 @@ namespace Consultation.Infrastructure.Data
             return Program;
         }
 
+       public static EnrolledCourse EnrollCourseSeeder(int enrolledCourseID, string courseName, string courseCode,
+      int schoolYearID, int studentID, int facultyID,string programCourse)
+        {
+            var EnrolledCourse = new EnrolledCourse
+            {
+                EnrolledCourseID = enrolledCourseID,
+                CourseCode = courseCode,
+                CourseName = courseName,
+                StudentID = studentID,
+                FacultyID = facultyID,
+                SchoolYearID = schoolYearID,
+                ProgramCourse  = programCourse
+            };
+            return EnrolledCourse;
+        }
+
         public static SchoolYear schoolYearSeeder(int schoolYearId, string Year1,string Year2, Domain.Enum.Semester semester, Domain.Enum.SchoolYearStatus schoolYearStatus)
         {
             var SchoolYear = new SchoolYear
@@ -70,21 +86,6 @@ namespace Consultation.Infrastructure.Data
 
             };
             return SchoolYear;
-        }
-
-        public static EnrolledCourse EnrollCourseSeeder(int enrolledCourseID,string courseName,string courseCode,
-            int schoolYearID,int studentID,int facultyID)
-        {
-            var EnrolledCourse = new EnrolledCourse
-            {
-                EnrolledCourseID = enrolledCourseID,
-                CourseCode = courseCode,
-                CourseName = courseName,
-                StudentID = studentID,
-                FacultyID = facultyID,
-                SchoolYearID = schoolYearID
-            };
-            return EnrolledCourse;
         }
 
         public static Student StudentSeeder(int id,string studentUMID,string studentName,string email,
@@ -126,7 +127,6 @@ namespace Consultation.Infrastructure.Data
              AdminName = adminName,
              AdminID = adminID,
              UsersID = userId
-
             };
             return admin;
         }
@@ -135,7 +135,7 @@ namespace Consultation.Infrastructure.Data
 
         public static ConsultationRequest ConsultationRequestSeeder(int ConsultationID,DateTime DateRequested,DateTime DateSchedule, TimeOnly StartedTime,
             TimeOnly EndedTime, string Concern, string? DisapprovedReason, string SubjectCode, Status Status, 
-            int StudentID, int FacultyID)
+            string programName,int StudentID, int FacultyID)
         {
             var ConsultationRequest = new ConsultationRequest
             {
@@ -149,7 +149,8 @@ namespace Consultation.Infrastructure.Data
                 SubjectCode = SubjectCode,
                 Status = Status,
                 StudentID = StudentID,
-                FacultyID = FacultyID
+                FacultyID = FacultyID,
+                ProgramName = programName
             };          
         return ConsultationRequest;
         }

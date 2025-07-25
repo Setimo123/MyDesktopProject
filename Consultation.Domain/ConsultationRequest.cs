@@ -30,12 +30,11 @@ namespace Consultation.Domain
 
         public Status Status { get; set; }
 
-        public int NotificationID { get; set; }
-
-        public virtual Student Student { get; set; }
+        public string ProgramName { get; set; }
 
         [ForeignKey(nameof(StudentID))]
         public int StudentID { get; set; }
+        public virtual Student Student { get; set; }
 
         [ForeignKey(nameof(FacultyID))]
         public int FacultyID { get; set; }

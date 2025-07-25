@@ -54,7 +54,6 @@ namespace Consultation.App.Presenters
             }
 
             _loginView.ShowMessage("Logged In Successful");
-            _loginView.ShowMessage($"{user.Id}");
             var admin = await _adminAccountServices.AdminAccount(user.Id);
 
             if (admin == null)
@@ -65,8 +64,8 @@ namespace Consultation.App.Presenters
   
             _boardview.AdminName = admin.AdminName;
             _mainview.LoadControl((UserControl)_boardview);
-            _loginView.HideForm();
-            _mainview.ShowForm();
+            ((Form)_loginView).Hide();
+            ((Form)_mainview).Show();
 
         }
         

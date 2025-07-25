@@ -247,7 +247,7 @@
             buttonDashboard.Name = "buttonDashboard";
             buttonDashboard.Size = new Size(247, 42);
             buttonDashboard.TabIndex = 2;
-            buttonDashboard.Text = "   Dashboard";
+            buttonDashboard.Text = "  Dashboard";
             buttonDashboard.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonDashboard.UseVisualStyleBackColor = false;
             // 

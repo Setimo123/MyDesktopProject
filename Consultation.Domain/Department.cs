@@ -16,10 +16,5 @@ namespace Consultation.Domain
 
         public string Description { get; set; }
 
-
-        //The relationship between Department and Program is many-to-one, 
-
-        //many programs to one department
-        //public ICollection<Program> Programs { get; set; }
     }
 }

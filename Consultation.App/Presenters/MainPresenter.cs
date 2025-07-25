@@ -123,7 +123,7 @@ namespace Consultation.App.Presenters
         {
             return viewType switch
             {
-                ChildViews.Dashboard => CreateDashboardView(),
+                //ChildViews.Dashboard => CreateDashboardView(),
                 ChildViews.Consultation => CreateConsultationView(),
                 ChildViews.Bulletin => CreateBulletinView(),
                 ChildViews.UserManagement => CreateUserManagementView(),
@@ -131,12 +131,12 @@ namespace Consultation.App.Presenters
             };
         }
 
-        private IChildView CreateDashboardView()
-        {
-            var view = new DashboardView();
-            var presenter = new DashboardPresenter(view);
-            return view;
-        }
+        //private IChildView CreateDashboardView()
+        //{
+        //    var view = new DashboardView();
+        //    var presenter = new DashboardPresenter(view);
+        //    return view;
+        //}
 
         private IChildView CreateConsultationView()
         {

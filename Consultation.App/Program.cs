@@ -26,13 +26,15 @@ namespace Consultation.App
 
             var authservice = new AuthService(appDbContext);
             var adminacc = new AdminAccountServices(appDbContext);
+            var consultationService = new ConsultationRequestServices(appDbContext);
 
             IDashboardView dash = new DashboardView();
             IMainView mainView = new MainView();
-
             ILoginView loginView = new LogInView();
-            new LogInPresenter(loginView, authservice,adminacc,dash, mainView);
 
+            new DashboardPresenter(dash, consultationService, mainView);
+            new LogInPresenter(loginView, authservice,adminacc,dash, mainView);
+        
             Application.Run((Form)loginView);
 
             ////Application.Run(new BulletinView());

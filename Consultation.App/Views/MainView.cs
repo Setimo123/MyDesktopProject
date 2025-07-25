@@ -21,6 +21,7 @@ namespace Consultation.App.Views
             buttonBulletin.Click += (s, e) => BulletinEvent?.Invoke(s, e);
             buttonSFManagement.Click += (s, e) => SFManagementEvent?.Invoke(s, e);
             buttonPreference.Click += (s, e) => PreferenceEvent?.Invoke(s, e);
+            
             //buttonNotification.Click += (s, e) => NotificationEvent?.Invoke(s, e);
             this.FormClosed += MainView_FormClosed;
 
