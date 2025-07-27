@@ -30,5 +30,29 @@ namespace Consultation.App.Repository
                 return null;
             }
         }
+
+        public async Task<ConsultationRequest?> GetStudenInfoConsultationRequests(int studentId)
+        {
+            return await _context.ConsultationRequest
+                                .Include(c => c.Student)
+                                .FirstOrDefaultAsync(c => c.StudentID == studentId);
+        }
+
+        public async Task<ConsultationRequest?> GetFacultyaInfoConsultationRequests(int facultyId)
+        {
+            return await _context.ConsultationRequest
+                                 .Include(c => c.Faculty)
+                                 .FirstOrDefaultAsync(c => c.FacultyID == facultyId);
+        }
+
+        
+        public async Task<List<ConsultationRequest>> GetConsultationRequestInfo(string programName)
+        {
+            return await _context.ConsultationRequest
+                                 .Include(c => c.Student)
+                                 .Include(c => c.Faculty)
+                                 .Where(c => c.ProgramName == programName)
+                                 .ToListAsync();
+        }
     }
 }

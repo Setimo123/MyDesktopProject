@@ -61,12 +61,12 @@
             materialCard1.Controls.Add(btnCreateBulletin);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(21, 15);
+            materialCard1.Location = new Point(88, 15);
             materialCard1.Margin = new Padding(14);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
             materialCard1.Padding = new Padding(14);
-            materialCard1.Size = new Size(1600, 80);
+            materialCard1.Size = new Size(1460, 80);
             materialCard1.TabIndex = 0;
             // 
             // btnRefresh
@@ -80,12 +80,12 @@
             btnRefresh.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnRefresh.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnRefresh.FillColor = Color.FromArgb(190, 0, 2);
-            btnRefresh.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnRefresh.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnRefresh.ForeColor = Color.White;
             btnRefresh.Image = Properties.Icons.refresh;
             btnRefresh.ImageOffset = new Point(-2, 0);
             btnRefresh.ImageSize = new Size(14, 14);
-            btnRefresh.Location = new Point(1319, 22);
+            btnRefresh.Location = new Point(1204, 22);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnRefresh.Size = new Size(97, 36);
@@ -110,7 +110,7 @@
             btnBulletinView.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnBulletinView.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnBulletinView.FillColor = Color.White;
-            btnBulletinView.Font = new Font("Inter", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnBulletinView.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnBulletinView.ForeColor = Color.FromArgb(190, 0, 2);
             btnBulletinView.Location = new Point(12, 12);
             btnBulletinView.Name = "btnBulletinView";
@@ -130,7 +130,7 @@
             btnArchive.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnArchive.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnArchive.FillColor = Color.White;
-            btnArchive.Font = new Font("Inter", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnArchive.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnArchive.ForeColor = Color.FromArgb(86, 93, 109);
             btnArchive.Location = new Point(154, 12);
             btnArchive.Name = "btnArchive";
@@ -151,12 +151,12 @@
             btnCreateBulletin.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnCreateBulletin.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnCreateBulletin.FillColor = Color.FromArgb(190, 0, 2);
-            btnCreateBulletin.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCreateBulletin.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnCreateBulletin.ForeColor = Color.White;
             btnCreateBulletin.Image = Properties.Icons.add;
             btnCreateBulletin.ImageOffset = new Point(-2, 0);
             btnCreateBulletin.ImageSize = new Size(14, 14);
-            btnCreateBulletin.Location = new Point(1431, 22);
+            btnCreateBulletin.Location = new Point(1307, 22);
             btnCreateBulletin.Name = "btnCreateBulletin";
             btnCreateBulletin.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnCreateBulletin.Size = new Size(143, 36);
@@ -216,14 +216,12 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(1642, 941);
             Controls.Add(panelHeader);
             Controls.Add(materialCard1);
             Controls.Add(materialCard2);
             DoubleBuffered = true;
-            //FormBorderStyle = FormBorderStyle.None;
             Name = "BulletinView";
-            Text = "BulletinsForm";
+            Size = new Size(1642, 941);
             materialCard1.ResumeLayout(false);
             panelHeader.ResumeLayout(false);
             panelHeader.PerformLayout();

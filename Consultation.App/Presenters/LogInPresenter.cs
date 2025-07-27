@@ -32,11 +32,6 @@ namespace Consultation.App.Presenters
             _mainview = mainview;
             _loginView.LogInEvent += LogIn; 
         }
-        // EllaineMusni.550200@umindanao.edu.ph
-        // AQAAAAIAAYagAAAAEIG5jButwoJ4JYY+4qNfa5qxkFZGPY6GQfJ75BlTwCeGgWTJyosYMMIp8oKd60fYeQ==
-
-        // MyAdmin123!
-
 
         public async void LogIn(object? sender, EventArgs e)
         {
@@ -62,7 +57,6 @@ namespace Consultation.App.Presenters
                 return;
             }
   
-            _boardview.AdminName = admin.AdminName;
             _mainview.LoadControl((UserControl)_boardview);
             ((Form)_loginView).Hide();
             ((Form)_mainview).Show();

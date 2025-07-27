@@ -1,17 +1,23 @@
 ﻿using Consultation.App.Dashboard.Activity_Feed_Panel;
 using Consultation.App.ViewModels.DashboardModels;
+using Consultation.Domain;
+using MaterialSkin.Controls;
 
 namespace Consultation.App.Views.IViews
 {
     public interface IDashboardView : IChildView
     {
 
-        string AdminName { set; }
         int TotalPendingConsultation { set; }
         int TotalCompletConsultation { set; }
         int TotalUpcomingConsultation { set; }
 
-        event EventHandler ShowCPEConsultationData;
+        string ProgramName { set; get; }
+
+        // void DisplayListConsultationBinding(BindingSource List);
+        void DisplayListConsultation(List<ConsultationRequest> List);
+        event EventHandler ShowConsultationData;
+        event EventHandler ShowConsultationDataList;
         //void LoadRecentBulletins(List<BulletinModel> bulletins);
         //void LoadRecentConsultations(List<ConsultationModel> consultations);
 

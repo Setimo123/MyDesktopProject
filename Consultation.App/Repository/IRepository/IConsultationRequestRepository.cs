@@ -11,5 +11,10 @@ namespace Consultation.App.Repository.IRepository
     {
         Task<List<ConsultationRequest>> GetConsultation(string ProgramName);
 
+        Task<ConsultationRequest?> GetStudenInfoConsultationRequests(int studentId);
+
+        Task<ConsultationRequest?> GetFacultyaInfoConsultationRequests(int facultyId);
+
+        Task<List<ConsultationRequest>> GetConsultationRequestInfo(string programName);
     }
 }

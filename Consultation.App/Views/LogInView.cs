@@ -73,6 +73,16 @@ namespace Consultation.App.Views
             RegexOptions.IgnoreCase);
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dockingClientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         //private void SignInButton_Click(object sender, EventArgs e)
         //{
         //    LogInEvent?.Invoke(this, EventArgs.Empty);

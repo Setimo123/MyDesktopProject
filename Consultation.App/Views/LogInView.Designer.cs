@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dockingClientPanel1 = new Syncfusion.Windows.Forms.Tools.DockingClientPanel();
-            pictureBox1 = new PictureBox();
             panel1 = new Panel();
             ErrorPassLabel = new Label();
             resultlabel1 = new Label();
@@ -43,33 +41,15 @@
             PasswordTextBox = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             label1 = new Label();
             EmailTextBox = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            dockingClientPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            pictureBox1 = new PictureBox();
+            dockingClientPanel1 = new Syncfusion.Windows.Forms.Tools.DockingClientPanel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)RememberMeCheckBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PasswordTextBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)EmailTextBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            dockingClientPanel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // dockingClientPanel1
-            // 
-            dockingClientPanel1.BackgroundImage = Properties.Icons.RedBg_1_;
-            dockingClientPanel1.Controls.Add(pictureBox1);
-            dockingClientPanel1.Controls.Add(panel1);
-            dockingClientPanel1.Location = new Point(-23, 0);
-            dockingClientPanel1.Name = "dockingClientPanel1";
-            dockingClientPanel1.Size = new Size(1940, 1080);
-            dockingClientPanel1.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Image = Properties.Icons.Untitled__Logo_;
-            pictureBox1.Location = new Point(23, 25);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(872, 987);
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
             // 
             // panel1
             // 
@@ -87,10 +67,11 @@
             panel1.Controls.Add(label1);
             panel1.Controls.Add(EmailTextBox);
             panel1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            panel1.Location = new Point(1180, 105);
+            panel1.Location = new Point(1132, 171);
             panel1.Name = "panel1";
-            panel1.Size = new Size(589, 849);
+            panel1.Size = new Size(563, 618);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
             // 
             // ErrorPassLabel
             // 
@@ -137,7 +118,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 8.25F);
-            label3.Location = new Point(197, 472);
+            label3.Location = new Point(162, 453);
             label3.Name = "label3";
             label3.Size = new Size(162, 13);
             label3.TabIndex = 7;
@@ -224,32 +205,49 @@
             EmailTextBox.TabIndex = 0;
             EmailTextBox.TextChanged += SignInTextBox_TextChanged;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Icons.Untitled__Logo_;
+            pictureBox1.Location = new Point(201, 123);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(843, 656);
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            // 
+            // dockingClientPanel1
+            // 
+            dockingClientPanel1.BackgroundImage = Properties.Icons.RedBg_1_;
+            dockingClientPanel1.Controls.Add(pictureBox1);
+            dockingClientPanel1.Controls.Add(panel1);
+            dockingClientPanel1.Location = new Point(-23, 0);
+            dockingClientPanel1.Name = "dockingClientPanel1";
+            dockingClientPanel1.Size = new Size(1940, 1080);
+            dockingClientPanel1.TabIndex = 0;
+            dockingClientPanel1.Paint += dockingClientPanel1_Paint;
+            // 
             // LogInView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(1924, 1041);
+            ClientSize = new Size(1832, 854);
             Controls.Add(dockingClientPanel1);
             Name = "LogInView";
             Text = "LogIn";
-            WindowState = FormWindowState.Maximized;
             Load += LogIn_Load;
-            dockingClientPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)RememberMeCheckBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)PasswordTextBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)EmailTextBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            dockingClientPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Syncfusion.Windows.Forms.Tools.DockingClientPanel dockingClientPanel1;
         private Panel panel1;
-        private PictureBox pictureBox1;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt PasswordTextBox;
         private Label label1;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt EmailTextBox;
@@ -262,5 +260,7 @@
         private Button ShowPassButton;
         private Label ErrorPassLabel;
         private Label resultlabel1;
+        private PictureBox pictureBox1;
+        private Syncfusion.Windows.Forms.Tools.DockingClientPanel dockingClientPanel1;
     }
 }

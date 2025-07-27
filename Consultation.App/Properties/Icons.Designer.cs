@@ -63,6 +63,36 @@ namespace Consultation.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _989c31eebd5af6a3a823879b6b3ac429 {
+            get {
+                object obj = ResourceManager.GetObject("989c31eebd5af6a3a823879b6b3ac429", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _989c31eebd5af6a3a823879b6b3ac4291 {
+            get {
+                object obj = ResourceManager.GetObject("989c31eebd5af6a3a823879b6b3ac4291", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _989c31eebd5af6a3a823879b6b3ac4292 {
+            get {
+                object obj = ResourceManager.GetObject("989c31eebd5af6a3a823879b6b3ac4292", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add {
             get {
                 object obj = ResourceManager.GetObject("add", resourceCulture);

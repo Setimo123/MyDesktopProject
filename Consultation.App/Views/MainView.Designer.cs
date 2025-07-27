@@ -77,7 +77,7 @@
             sidePanel.ForeColor = SystemColors.ControlText;
             sidePanel.Location = new Point(0, 0);
             sidePanel.Name = "sidePanel";
-            sidePanel.Size = new Size(260, 1041);
+            sidePanel.Size = new Size(260, 961);
             sidePanel.TabIndex = 0;
             // 
             // pictureBoxLogo
@@ -265,7 +265,7 @@
             profilePanel.Controls.Add(labelProfileName);
             profilePanel.Controls.Add(pictureBoxProfile);
             profilePanel.Dock = DockStyle.Bottom;
-            profilePanel.Location = new Point(0, 946);
+            profilePanel.Location = new Point(0, 866);
             profilePanel.Name = "profilePanel";
             profilePanel.Size = new Size(260, 95);
             profilePanel.TabIndex = 1;
@@ -306,7 +306,7 @@
             panelContainer.Dock = DockStyle.Fill;
             panelContainer.Location = new Point(260, 0);
             panelContainer.Name = "panelContainer";
-            panelContainer.Size = new Size(1644, 1041);
+            panelContainer.Size = new Size(1644, 961);
             panelContainer.TabIndex = 11;
             // 
             // MainView
@@ -314,7 +314,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(1904, 1041);
+            ClientSize = new Size(1904, 961);
             Controls.Add(panelContainer);
             Controls.Add(sidePanel);
             IsMdiContainer = true;
