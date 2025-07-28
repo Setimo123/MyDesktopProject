@@ -55,27 +55,46 @@ namespace Consultation.App.Service
             }
         }
 
-        public async Task<List<ConsultationRequest>> GetListFaclutyStudentInformation(string programName)
+        public async Task<Faculty> GetFacultyInformation(int facultyID)
         {
             try
             {
-                var consultations = await _repository.GetConsultation(programName);
+                var consultationFacultyInfo = await _repository.GetFacultyaInfoConsultationRequests(facultyID);
 
-                if (consultations == null || !consultations.Any())
-                    MessageBox.Show("No consultations found.");
+                if (consultationFacultyInfo.Faculty == null)
+                    MessageBox.Show("No faculty information found.");
 
-                return consultations;
+                return new Faculty 
+                { 
+                    FacultyName = consultationFacultyInfo.Faculty.FacultyName
+                };
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error Message: {ex.Message}");
-                return new List<ConsultationRequest>();
+                return null;
             }
         }
 
-        public Task<ConsultationRequest?> GetStudentInformation(int facultyID)
+        public async Task<Student> GetStudentInformation(int studentID)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var consultationStudentInfo = await _repository.GetStudenInfoConsultationRequests(studentID);
+
+                if (consultationStudentInfo.Student == null)
+                    MessageBox.Show("No faculty information found.");
+
+                return new Student
+                {
+                    StudentName = consultationStudentInfo.Student.StudentName
+                };
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error Message: {ex.Message}");
+                return null;
+            }
         }
     }
 }

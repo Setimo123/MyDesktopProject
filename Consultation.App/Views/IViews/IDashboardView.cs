@@ -15,7 +15,7 @@ namespace Consultation.App.Views.IViews
         string ProgramName { set; get; }
 
         // void DisplayListConsultationBinding(BindingSource List);
-        void DisplayListConsultation(List<ConsultationRequest> List);
+        void DisplayListConsultation(List<ConsultationRequest> List, Faculty faculty, Student student);
         event EventHandler ShowConsultationData;
         event EventHandler ShowConsultationDataList;
         //void LoadRecentBulletins(List<BulletinModel> bulletins);

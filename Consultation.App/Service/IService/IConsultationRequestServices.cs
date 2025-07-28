@@ -14,9 +14,9 @@ namespace Consultation.App.Service.IService
         Task<int> TotalPendingConsultation(string programName, Status status);
         Task<List<ConsultationRequest>> ListOfConsultation(string programName);
 
-        Task<ConsultationRequest?> GetStudentInformation(int facultyID);
+        Task<Student> GetStudentInformation(int facultyID);
 
-        Task<List<ConsultationRequest>> GetListFaclutyStudentInformation(string programName);
+        Task<Faculty> GetFacultyInformation(int facultyID);
 
     }
 }

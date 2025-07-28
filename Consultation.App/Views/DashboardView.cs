@@ -179,19 +179,21 @@ namespace Consultation.App.Dashboard
         }
 
         //Normal List without Bindingsource
-        public void DisplayListConsultation(List<ConsultationRequest> consultations)
+        public void DisplayListConsultation(List<ConsultationRequest> consultations, Faculty faculty,Student student)
         {
             //Everything should be show in one click
             flowLayoutActivityFeed.Controls.Clear();
             //Comment sa ni kay naay error
+            if (faculty == null)
+                MessageBox.Show($"No faculty found in the database");
+
+            if (student == null)
+                MessageBox.Show($"No student found in the database");
 
             foreach (ConsultationRequest c in consultations)
             {
-                var studentName = c.Student?.StudentName ?? "No Student";
-                var facultyName = c.Faculty?.FacultyName ?? "No Faculty";
-
                 flowLayoutActivityFeed.Controls.Add(new ConsultationDashBoardCard(c.SubjectCode,
-                    studentName, facultyName, c.Concern, c.ProgramName, c.DateRequested.ToString(),
+                    student.StudentName, faculty.FacultyName, c.Concern, c.ProgramName, c.DateRequested.ToString(),
                     c.DateSchedule.ToString()));
             }
 

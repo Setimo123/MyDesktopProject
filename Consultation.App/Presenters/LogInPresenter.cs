@@ -48,6 +48,8 @@ namespace Consultation.App.Presenters
                 return;
             }
 
+            
+
             _loginView.ShowMessage("Logged In Successful");
             var admin = await _adminAccountServices.AdminAccount(user.Id);
 

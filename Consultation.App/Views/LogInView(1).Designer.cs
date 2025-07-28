@@ -1,6 +1,6 @@
 ﻿namespace Consultation.App.Views
 {
-    partial class LogIn_1_
+    partial class LogInView_1
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn_1_));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogInView_1));
             pictureBox1 = new PictureBox();
             ErrorPassLabel = new Label();
             resultlabel1 = new Label();

@@ -30,7 +30,7 @@ namespace Consultation.App
 
             IDashboardView dash = new DashboardView();
             IMainView mainView = new MainView();
-            ILoginView loginView = new LogInView();
+            ILoginView loginView = new LogInView_1();
 
             new DashboardPresenter(dash, consultationService, mainView);
             new LogInPresenter(loginView, authservice,adminacc,dash, mainView);

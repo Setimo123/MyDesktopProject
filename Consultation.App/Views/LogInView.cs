@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace Consultation.App.Views
 {
-    public partial class LogInView : Form, ILoginView
+    public partial class LogInView : Form
     {
         public LogInView()
         {
@@ -22,7 +22,6 @@ namespace Consultation.App.Views
             EmailTextBox.TextChanged += SignInTextBox_TextChanged;
             PasswordTextBox.TextChanged += PasswordTextBoxV2_TextChanged;
             buttonLogIn.Click += (s, e) => LogInEvent?.Invoke(s, e);
-
         }
 
 

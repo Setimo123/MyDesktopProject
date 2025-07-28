@@ -76,17 +76,19 @@
             sidePanel.Dock = DockStyle.Left;
             sidePanel.ForeColor = SystemColors.ControlText;
             sidePanel.Location = new Point(0, 0);
+            sidePanel.Margin = new Padding(4, 5, 4, 5);
             sidePanel.Name = "sidePanel";
-            sidePanel.Size = new Size(260, 961);
+            sidePanel.Size = new Size(371, 1050);
             sidePanel.TabIndex = 0;
             // 
             // pictureBoxLogo
             // 
             pictureBoxLogo.BackColor = Color.Transparent;
             pictureBoxLogo.Image = Properties.Icons.LOGO_name__Custom___1_;
-            pictureBoxLogo.Location = new Point(6, 25);
+            pictureBoxLogo.Location = new Point(9, 42);
+            pictureBoxLogo.Margin = new Padding(4, 5, 4, 5);
             pictureBoxLogo.Name = "pictureBoxLogo";
-            pictureBoxLogo.Size = new Size(248, 96);
+            pictureBoxLogo.Size = new Size(354, 160);
             pictureBoxLogo.TabIndex = 0;
             pictureBoxLogo.TabStop = false;
             // 
@@ -96,9 +98,10 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
             label3.ForeColor = SystemColors.ControlLightLight;
-            label3.Location = new Point(24, 554);
+            label3.Location = new Point(23, 711);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(84, 24);
+            label3.Size = new Size(128, 33);
             label3.TabIndex = 11;
             label3.Text = "Settings";
             // 
@@ -112,9 +115,10 @@
             buttonPreference.ImageAlign = ContentAlignment.MiddleLeft;
             buttonPreference.ImageIndex = 0;
             buttonPreference.ImageList = settings_icon;
-            buttonPreference.Location = new Point(30, 594);
+            buttonPreference.Location = new Point(14, 772);
+            buttonPreference.Margin = new Padding(4, 5, 4, 5);
             buttonPreference.Name = "buttonPreference";
-            buttonPreference.Size = new Size(247, 48);
+            buttonPreference.Size = new Size(353, 80);
             buttonPreference.TabIndex = 10;
             buttonPreference.Text = "   Security";
             buttonPreference.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -134,9 +138,10 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
             label2.ForeColor = SystemColors.ControlLightLight;
-            label2.Location = new Point(24, 424);
+            label2.Location = new Point(34, 578);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(131, 24);
+            label2.Size = new Size(194, 33);
             label2.TabIndex = 7;
             label2.Text = "Management";
             // 
@@ -150,9 +155,10 @@
             buttonSFManagement.ImageAlign = ContentAlignment.MiddleLeft;
             buttonSFManagement.ImageIndex = 0;
             buttonSFManagement.ImageList = userManagement_icon;
-            buttonSFManagement.Location = new Point(30, 464);
+            buttonSFManagement.Location = new Point(23, 626);
+            buttonSFManagement.Margin = new Padding(4, 5, 4, 5);
             buttonSFManagement.Name = "buttonSFManagement";
-            buttonSFManagement.Size = new Size(247, 48);
+            buttonSFManagement.Size = new Size(353, 80);
             buttonSFManagement.TabIndex = 6;
             buttonSFManagement.Text = "   User Management";
             buttonSFManagement.TextAlign = ContentAlignment.MiddleLeft;
@@ -177,9 +183,10 @@
             buttonConsultation.ImageAlign = ContentAlignment.MiddleLeft;
             buttonConsultation.ImageIndex = 0;
             buttonConsultation.ImageList = consultation_icon;
-            buttonConsultation.Location = new Point(30, 328);
+            buttonConsultation.Location = new Point(23, 470);
+            buttonConsultation.Margin = new Padding(4, 5, 4, 5);
             buttonConsultation.Name = "buttonConsultation";
-            buttonConsultation.Size = new Size(247, 48);
+            buttonConsultation.Size = new Size(353, 80);
             buttonConsultation.TabIndex = 5;
             buttonConsultation.Text = "   Consultation";
             buttonConsultation.TextAlign = ContentAlignment.MiddleLeft;
@@ -204,9 +211,10 @@
             buttonBulletin.ImageAlign = ContentAlignment.MiddleLeft;
             buttonBulletin.ImageIndex = 0;
             buttonBulletin.ImageList = bulletin_icon;
-            buttonBulletin.Location = new Point(30, 280);
+            buttonBulletin.Location = new Point(23, 375);
+            buttonBulletin.Margin = new Padding(4, 5, 4, 5);
             buttonBulletin.Name = "buttonBulletin";
-            buttonBulletin.Size = new Size(247, 42);
+            buttonBulletin.Size = new Size(353, 70);
             buttonBulletin.TabIndex = 4;
             buttonBulletin.Text = "   Bulletin";
             buttonBulletin.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -226,9 +234,10 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(24, 192);
+            label1.Location = new Point(23, 235);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(55, 24);
+            label1.Size = new Size(82, 33);
             label1.TabIndex = 3;
             label1.Text = "Main";
             // 
@@ -243,9 +252,10 @@
             buttonDashboard.ImageAlign = ContentAlignment.MiddleLeft;
             buttonDashboard.ImageIndex = 0;
             buttonDashboard.ImageList = dashboard_icon;
-            buttonDashboard.Location = new Point(30, 232);
+            buttonDashboard.Location = new Point(23, 295);
+            buttonDashboard.Margin = new Padding(4, 5, 4, 5);
             buttonDashboard.Name = "buttonDashboard";
-            buttonDashboard.Size = new Size(247, 42);
+            buttonDashboard.Size = new Size(353, 70);
             buttonDashboard.TabIndex = 2;
             buttonDashboard.Text = "  Dashboard";
             buttonDashboard.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -265,9 +275,10 @@
             profilePanel.Controls.Add(labelProfileName);
             profilePanel.Controls.Add(pictureBoxProfile);
             profilePanel.Dock = DockStyle.Bottom;
-            profilePanel.Location = new Point(0, 866);
+            profilePanel.Location = new Point(0, 892);
+            profilePanel.Margin = new Padding(4, 5, 4, 5);
             profilePanel.Name = "profilePanel";
-            profilePanel.Size = new Size(260, 95);
+            profilePanel.Size = new Size(371, 158);
             profilePanel.TabIndex = 1;
             // 
             // labelProfileRole
@@ -275,9 +286,10 @@
             labelProfileRole.AutoSize = true;
             labelProfileRole.BackColor = Color.Transparent;
             labelProfileRole.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelProfileRole.Location = new Point(88, 48);
+            labelProfileRole.Location = new Point(126, 80);
+            labelProfileRole.Margin = new Padding(4, 0, 4, 0);
             labelProfileRole.Name = "labelProfileRole";
-            labelProfileRole.Size = new Size(39, 18);
+            labelProfileRole.Size = new Size(64, 29);
             labelProfileRole.TabIndex = 2;
             labelProfileRole.Text = "Role";
             // 
@@ -286,38 +298,42 @@
             labelProfileName.AutoSize = true;
             labelProfileName.BackColor = Color.Transparent;
             labelProfileName.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelProfileName.Location = new Point(88, 24);
+            labelProfileName.Location = new Point(126, 40);
+            labelProfileName.Margin = new Padding(4, 0, 4, 0);
             labelProfileName.Name = "labelProfileName";
-            labelProfileName.Size = new Size(94, 18);
+            labelProfileName.Size = new Size(145, 29);
             labelProfileName.TabIndex = 1;
             labelProfileName.Text = "John Name";
             // 
             // pictureBoxProfile
             // 
             pictureBoxProfile.BackColor = Color.White;
-            pictureBoxProfile.Location = new Point(16, 24);
+            pictureBoxProfile.Location = new Point(23, 40);
+            pictureBoxProfile.Margin = new Padding(4, 5, 4, 5);
             pictureBoxProfile.Name = "pictureBoxProfile";
-            pictureBoxProfile.Size = new Size(56, 56);
+            pictureBoxProfile.Size = new Size(80, 93);
             pictureBoxProfile.TabIndex = 0;
             pictureBoxProfile.TabStop = false;
             // 
             // panelContainer
             // 
             panelContainer.Dock = DockStyle.Fill;
-            panelContainer.Location = new Point(260, 0);
+            panelContainer.Location = new Point(371, 0);
+            panelContainer.Margin = new Padding(4, 5, 4, 5);
             panelContainer.Name = "panelContainer";
-            panelContainer.Size = new Size(1644, 961);
+            panelContainer.Size = new Size(1553, 1050);
             panelContainer.TabIndex = 11;
             // 
             // MainView
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(1904, 961);
+            ClientSize = new Size(1924, 1050);
             Controls.Add(panelContainer);
             Controls.Add(sidePanel);
-            IsMdiContainer = true;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "MainView";
             Text = "UMECA";
             WindowState = FormWindowState.Maximized;

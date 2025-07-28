@@ -66,10 +66,19 @@ namespace Consultation.App.Presenters
             List<ConsultationRequest> consultationList = 
                 await _consultationrequestservices.ListOfConsultation(_dashboardview.ProgramName);
 
-            List<ConsultationRequest> studentFacultyInfo =
-                await _consultationrequestservices.GetListFaclutyStudentInformation(_dashboardview.ProgramName);
+            Faculty facultyInformation = new Faculty(); 
 
-            _dashboardview.DisplayListConsultation(studentFacultyInfo);
+            Student studentInformation = new Student();
+            foreach (var list in consultationList)
+            {
+                facultyInformation =
+                await _consultationrequestservices.GetFacultyInformation(list.FacultyID);
+
+                studentInformation = 
+                    await _consultationrequestservices.GetStudentInformation(list.StudentID);
+            }
+
+            _dashboardview.DisplayListConsultation(consultationList, facultyInformation, studentInformation);
         }
     }
 }

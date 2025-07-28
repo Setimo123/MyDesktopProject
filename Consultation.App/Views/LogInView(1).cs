@@ -1,20 +1,25 @@
-﻿using System;
+﻿using Consultation.App.Views.IViews;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Consultation.App.Views
 {
-    public partial class LogIn_1_ : Form
+    public partial class LogInView_1 : Form, ILoginView
     {
-        public LogIn_1_()
+        public LogInView_1()
         {
             InitializeComponent();
+            EmailTextBox.TextChanged += SignInTextBox_TextChanged;
+            PasswordTextBox.TextChanged += PasswordTextBoxV2_TextChanged;
+            buttonLogIn.Click += (s, e) => LogInEvent?.Invoke(s, e);
         }
 
         private void LogIn_1__Load(object sender, EventArgs e)
@@ -26,5 +31,71 @@ namespace Consultation.App.Views
         {
 
         }
+
+        private void ShowPassButton_Click(object sender, EventArgs e)
+        {
+            PasswordVisible = !PasswordVisible;
+            PasswordTextBox.UseSystemPasswordChar = !PasswordVisible;
+        }
+
+        public void ShowMessage(string message)
+        {
+            MessageBox.Show(message);
+        }
+
+        public void HideForm()
+        {
+            this.Hide();
+        }
+
+        public string useremail => EmailTextBox.Text;
+
+        public string password => PasswordTextBox.Text;
+
+        private void LogIn_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        //What is the point of this?
+        private void SignInTextBox_TextChanged(object sender, EventArgs e)
+        {
+            resultlabel1.Text = "";
+        }
+
+        private void PasswordTextBoxV2_TextChanged(object sender, EventArgs e)
+        {
+            ErrorPassLabel.Text = "";
+        }
+
+        private bool PasswordVisible = false;
+        private const string LePassword = "admin";
+
+        private bool EmailIsValid(string email)
+
+        {
+            return Regex.IsMatch(email,
+            @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
+            RegexOptions.IgnoreCase);
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dockingClientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        //private void SignInButton_Click(object sender, EventArgs e)
+        //{
+        //    LogInEvent?.Invoke(this, EventArgs.Empty);
+
+        //}
+
+
+        public event EventHandler LogInEvent;
     }
 }
