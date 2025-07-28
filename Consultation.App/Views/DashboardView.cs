@@ -74,6 +74,8 @@ namespace Consultation.App.Dashboard
             MaterialSkinCardUIHelper.AddHoverBorder(materialCardEE, hoverColor, Color.White);
             MaterialSkinCardUIHelper.AddHoverBorder(materialCardAllPrograms, hoverColor, Color.White);
             MaterialSkinCardUIHelper.AddHoverBorder(materialCardCE, hoverColor, Color.White);
+            MaterialSkinCardUIHelper.AddHoverBorder(materialCardCHE, hoverColor, Color.White);
+            MaterialSkinCardUIHelper.AddHoverBorder(addUser, hoverColor,Color.White);
 
         }
 
