@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Enum
 {
-    public enum BulletinStatus
+    public enum NotificationType
     {
-        pending = 1,
-        publish = 2,
+        StudentNotification = 1, 
+        AdminNotification = 2,
     }
 }

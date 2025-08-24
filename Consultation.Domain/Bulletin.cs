@@ -21,7 +21,7 @@ namespace Consultation.Domain
 
         public string Content { get; set; }
 
-        public BulletinStatus.Status Status { get; set; }    
+        public BulletinStatus Status { get; set; }    
 
         public DateTime DatePublished { get; set; }
 
